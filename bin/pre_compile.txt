@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo "Current pip version:"
+pip --version
+
+echo "Downgrading pip..."
+python -m pip install "pip<24.1"
+
+echo "New pip version:"
+pip --version

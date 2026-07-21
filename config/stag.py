@@ -33,13 +33,13 @@ import os
 DATABASES.update(
     {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': os.environ.get('MYSQL_NAME'),
-            'USER': os.environ.get('MYSQL_USER'),
-            'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
-            'HOST': os.environ.get('MYSQL_HOST'),
-            'PORT': os.environ.get('MYSQL_PORT', '3306'),
-        },
+             'ENGINE': 'django.db.backends.mysql',
+             'NAME': 'urt_sz_tiag001_prod',  # 外部数据库名
+             'USER': 'root',  # 外部数据库用户
+             'PASSWORD': 'James0924$',  # 外部数据库密码
+             'HOST': '127.0.0.1',  # 外部数据库主机
+             'PORT': '3306',  # 外部数据库端口
+         },
     }
 )
 

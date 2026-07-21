@@ -28,18 +28,20 @@ RUN_MODE = "STAGING"
 # LOGGING = set_log_level(locals())
 
 # 预发布环境数据库可以在这里配置
+import os
+
 DATABASES.update(
-     {
-         'default': {
-             'ENGINE': 'django.db.backends.mysql',
-             'NAME': 'urt_sz_tiag001_test',  # 外部数据库名
-             'USER': 'root',  # 外部数据库用户
-             'PASSWORD': 'James0924$',  # 外部数据库密码
-             'HOST': '127.0.0.1',  # 外部数据库主机
-             'PORT': '3306',  # 外部数据库端口
-         },
-     }
- )
+    {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('MYSQL_NAME'),
+            'USER': os.environ.get('MYSQL_USER'),
+            'PASSWORD': os.environ.get('MYSQL_PASSWORD'),
+            'HOST': os.environ.get('MYSQL_HOST'),
+            'PORT': os.environ.get('MYSQL_PORT', '3306'),
+        },
+    }
+)
 
 # 前后端开发模式下支持跨域配置
 if FRONTEND_BACKEND_SEPARATION:
